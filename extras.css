@@ -1,0 +1,449 @@
+/*
+ * Additions on top of Jon Barron's stylesheet.css (which is kept unmodified):
+ * site-wide reading sizes, dark mode, the theme toggle, blog post styles, and a phone layout.
+ */
+
+/* ---- site-wide typography ----
+   stylesheet.css pins text to 14px. The whole site uses a reading size in line with ML blogs
+   (Distill, Lilian Weng, Sander Dieleman use roughly 17-19px body text). */
+body,
+td,
+th,
+tr,
+p,
+a,
+strong,
+.papertitle {
+  font-size: 17px;
+}
+body {
+  line-height: 1.55;
+}
+.name {
+  font-size: 38px;
+}
+.site-name {
+  font-size: 28px;
+}
+h2 {
+  font-size: 25px;
+}
+/* The name on the home page is an <h1> (for search engines) styled like Barron's .name paragraph. */
+h1.name {
+  font-weight: normal;
+}
+/* Barron's footer uses an inline font-size:small (13px). */
+p[style*="font-size:small"] {
+  font-size: 15px !important;
+}
+
+/* ---- dark mode (toggled from the footer; light is the default) ---- */
+
+/* Explicit colors, so browsers in dark mode don't paint a dark default behind the light page. */
+html {
+  color-scheme: light;
+  background: #ffffff;
+  color: #000000;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  background: #161616;
+}
+[data-theme="dark"] body {
+  color: #e4e4e4;
+}
+[data-theme="dark"] a {
+  color: #5aa9f5;
+}
+[data-theme="dark"] a:focus,
+[data-theme="dark"] a:hover {
+  color: #f5a54a;
+}
+[data-theme="dark"] tr[bgcolor],
+[data-theme="dark"] span.highlight {
+  background-color: #2e2c17;
+}
+
+/* Callout box on the home page (e.g. the PhD search note). */
+.notice {
+  background-color: #ffffd0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin: 0 0 24px;
+}
+[data-theme="dark"] .notice {
+  background-color: #2e2c17;
+  border: 1px solid #4a4626;
+}
+
+.theme-toggle {
+  background: none;
+  border: 0;
+  padding: 0 0 0 0.35em;
+  color: #1772d0;
+  font-size: 1.15em;
+  line-height: 1;
+  cursor: pointer;
+}
+[data-theme="dark"] .theme-toggle {
+  color: #5aa9f5;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: #f09228;
+}
+
+/* Notice shown after clicking an email link (the script is in _includes/head-extras.html). */
+.email-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 10;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #222222;
+  color: #ffffff;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+.email-toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+[data-theme="dark"] .email-toast {
+  background: #e4e4e4;
+  color: #161616;
+}
+
+/* ---- blog ---- */
+
+.post-date {
+  color: #666;
+}
+[data-theme="dark"] .post-date,
+[data-theme="dark"] .post-meta {
+  color: #9a9a9a;
+}
+
+.post-title {
+  margin: 12px 0 10px;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 1.15;
+}
+.post-meta {
+  color: #666;
+  margin: 0 0 44px;
+  font-size: 15px;
+}
+
+/* Posts get a slightly taller line height for long-form reading. */
+.post-content,
+.post-content p,
+.post-content li,
+.post-content a,
+.post-content strong,
+.post-content blockquote {
+  font-size: 17px;
+  line-height: 1.7;
+}
+.post-content td,
+.post-content th {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.post-content figcaption,
+.post-content figcaption a,
+.post-content figcaption strong {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #555;
+}
+[data-theme="dark"] .post-content figcaption,
+[data-theme="dark"] .post-content figcaption strong {
+  color: #a8a8a8;
+}
+.post-content figure {
+  margin: 28px 0;
+}
+.post-content {
+  overflow-wrap: break-word;
+}
+.post-content h2 {
+  font-size: 25px;
+  margin: 1.8em 0 0.5em;
+}
+.post-content h3 {
+  font-weight: normal;
+  font-size: 21px;
+  margin: 1.5em 0 0.4em;
+}
+.post-content h4 {
+  font-weight: 700;
+  font-size: 17px;
+  margin: 1.4em 0 0.3em;
+}
+
+/* Table of contents */
+.post-content .toc {
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 14px 22px 10px;
+  margin: 24px 0 32px;
+}
+.post-content .toc ul {
+  list-style: none;
+  margin: 4px 0;
+  padding-left: 0;
+}
+.post-content .toc ul ul {
+  padding-left: 1.4em;
+}
+.post-content .toc li,
+.post-content .toc a {
+  font-size: 16px;
+  line-height: 1.6;
+}
+[data-theme="dark"] .post-content .toc {
+  background: #242424;
+  border: 1px solid #3a3a3a;
+}
+.post-content img,
+.post-content video {
+  max-width: 100%;
+  height: auto;
+}
+.post-content figure img,
+.post-content figure video {
+  display: block;
+  margin: 0 auto 6px;
+  border-radius: 6px;
+}
+.post-content ol.references li,
+.post-content ol.references li a {
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+.post-content blockquote {
+  margin: 1.25em 0;
+  padding: 0 1em;
+  border-left: 3px solid #ddd;
+  color: #666;
+}
+.post-content table {
+  border-collapse: collapse;
+  margin: 1.25em 0;
+  display: block;
+  overflow-x: auto;
+}
+.post-content th,
+.post-content td {
+  border: 1px solid #ddd;
+  padding: 0.35em 0.75em;
+}
+.post-content hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 2em 0;
+}
+.post-content .footnotes,
+.post-content .footnotes p,
+.post-content .footnotes li {
+  font-size: 13px;
+  color: #666;
+}
+[data-theme="dark"] .post-content blockquote,
+[data-theme="dark"] .post-content .footnotes,
+[data-theme="dark"] .post-content .footnotes p {
+  color: #9a9a9a;
+}
+[data-theme="dark"] .post-content blockquote,
+[data-theme="dark"] .post-content th,
+[data-theme="dark"] .post-content td,
+[data-theme="dark"] .post-content hr {
+  border-color: #333;
+}
+
+.post-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  margin-top: 3em;
+}
+
+/* ---- math ---- */
+
+.math-display,
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+.math-display {
+  margin: 1.25em 0;
+}
+
+/* ---- code ---- */
+
+code,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+:not(pre) > code {
+  background: #f3f4f6;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+pre {
+  background: #f6f8fa;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+pre code {
+  font-size: 1em;
+}
+[data-theme="dark"] :not(pre) > code,
+[data-theme="dark"] pre {
+  background: #22272e;
+}
+[data-theme="dark"] pre {
+  border: 1px solid #373e47;
+}
+.highlight {
+  margin: 1.25em 0;
+}
+.highlight pre {
+  margin: 0;
+}
+
+/* Rouge syntax highlighting (GitHub-like) */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs, .highlight .cp { color: #6e7781; font-style: italic; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt, .highlight .ow { color: #cf222e; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr { color: #0a3069; }
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .kc, .highlight .no { color: #0550ae; }
+.highlight .nf, .highlight .fm, .highlight .nc, .highlight .nn { color: #8250df; }
+.highlight .nb, .highlight .bp, .highlight .nd { color: #953800; }
+.highlight .gd { color: #82071e; background: #ffebe9; }
+.highlight .gi { color: #116329; background: #dafbe1; }
+
+[data-theme="dark"] .highlight .c, [data-theme="dark"] .highlight .c1, [data-theme="dark"] .highlight .cm, [data-theme="dark"] .highlight .cs, [data-theme="dark"] .highlight .cp { color: #8b949e; }
+[data-theme="dark"] .highlight .k, [data-theme="dark"] .highlight .kd, [data-theme="dark"] .highlight .kn, [data-theme="dark"] .highlight .kp, [data-theme="dark"] .highlight .kr, [data-theme="dark"] .highlight .kt, [data-theme="dark"] .highlight .ow { color: #ff7b72; }
+[data-theme="dark"] .highlight .s, [data-theme="dark"] .highlight .s1, [data-theme="dark"] .highlight .s2, [data-theme="dark"] .highlight .sb, [data-theme="dark"] .highlight .sd, [data-theme="dark"] .highlight .se, [data-theme="dark"] .highlight .sh, [data-theme="dark"] .highlight .si, [data-theme="dark"] .highlight .sx, [data-theme="dark"] .highlight .sr { color: #a5d6ff; }
+[data-theme="dark"] .highlight .m, [data-theme="dark"] .highlight .mi, [data-theme="dark"] .highlight .mf, [data-theme="dark"] .highlight .mh, [data-theme="dark"] .highlight .mo, [data-theme="dark"] .highlight .kc, [data-theme="dark"] .highlight .no { color: #79c0ff; }
+[data-theme="dark"] .highlight .nf, [data-theme="dark"] .highlight .fm, [data-theme="dark"] .highlight .nc, [data-theme="dark"] .highlight .nn { color: #d2a8ff; }
+[data-theme="dark"] .highlight .nb, [data-theme="dark"] .highlight .bp, [data-theme="dark"] .highlight .nd { color: #ffa657; }
+[data-theme="dark"] .highlight .gd { color: #ffdcd7; background: #67060c; }
+[data-theme="dark"] .highlight .gi { color: #aff5b4; background: #033a16; }
+
+/* Smooth jumps for in-page links (section references, citations). */
+html {
+  scroll-behavior: smooth;
+}
+.post-content h2,
+.post-content h3,
+.post-content ol.references li {
+  scroll-margin-top: 16px;
+}
+
+/* ---- phones ---- */
+
+@media (max-width: 640px) {
+  body {
+    margin: 0 6px;
+  }
+  body,
+  td,
+  th,
+  tr,
+  p,
+  a,
+  strong,
+  .papertitle,
+  .post-content,
+  .post-content p,
+  .post-content li,
+  .post-content a,
+  .post-content strong,
+  .post-content blockquote {
+    font-size: 16px;
+  }
+  .name {
+    font-size: 30px;
+  }
+  .site-name {
+    font-size: 24px;
+  }
+  .post-title {
+    font-size: 30px;
+  }
+  .post-meta {
+    margin-bottom: 32px;
+  }
+  .post-content h2 {
+    font-size: 22px;
+  }
+  .post-content h3 {
+    font-size: 19px;
+  }
+  .post-content .toc {
+    padding: 12px 14px 8px;
+  }
+  .post-content .toc li,
+  .post-content .toc a {
+    font-size: 15px;
+  }
+  .post-content figcaption,
+  .post-content figcaption a,
+  .post-content figcaption strong {
+    font-size: 14px;
+  }
+
+  /* Barron's layout puts things side by side in fixed-width table cells; stack them instead. */
+  td[style*="width:63%"],
+  td[style*="width:37%"],
+  td[style*="width:20%"],
+  td[style*="width:80%"] {
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+    box-sizing: border-box;
+  }
+  /* Home: photo above the bio, smaller and centred. */
+  tr:has(> td[style*="width:37%"]) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  td[style*="width:37%"] {
+    padding: 8px 22% 0 !important;
+  }
+  /* Project rows and Miscellanea: thumbnail or label above the text. */
+  td[style*="width:20%"] {
+    padding: 14px 16px 4px !important;
+    text-align: center;
+  }
+  td[style*="width:20%"] .one,
+  td[style*="width:20%"] img {
+    margin: 0 auto;
+  }
+  td[style*="width:80%"] {
+    padding: 4px 16px 12px !important;
+  }
+  /* Blog list: date on its own line, left aligned. */
+  td.post-date {
+    text-align: left;
+    padding-bottom: 0 !important;
+  }
+}

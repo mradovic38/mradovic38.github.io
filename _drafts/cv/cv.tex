@@ -1,0 +1,145 @@
+%-------------------------
+% Resume in LaTeX, based on the template by Sourabh Bajaj (https://github.com/sb2nov/resume), MIT License.
+% Compile with: latexmk -pdf cv.tex   (must stay a single page)
+%-------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,left=0.55in,right=0.55in,top=0.45in,bottom=0.4in]{geometry}
+\usepackage{titlesec}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\definecolor{linkblue}{HTML}{1772D0}
+\hypersetup{
+  colorlinks=true, urlcolor=linkblue, linkcolor=linkblue,
+  pdftitle={Mihailo Radović -- CV}, pdfauthor={Mihailo Radović}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\parindent}{0pt}
+
+% Section formatting
+\titleformat{\section}{\scshape\raggedright\large}{}{0em}{}[\vspace{-3pt}\color{black}\titlerule]
+\titlespacing*{\section}{0pt}{11pt}{6pt}
+
+%-------------------------
+% Custom commands
+% \entry{Left bold}{Right}{Left italic}{Right italic}
+\newcommand{\entry}[4]{
+  \vspace{-1pt}\item
+  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-4pt}
+}
+% \project{Title}{links}  followed by a short description
+\newcommand{\project}[2]{\item \textbf{#1}\hfill{\small #2}}
+\newcommand{\desc}[1]{\par\vspace{1pt}{\small #1\par}}
+\newcommand{\entryListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=5pt, topsep=0pt, parsep=0pt]}
+\newcommand{\entryListEnd}{\end{itemize}}
+
+%-------------------------------------------
+\begin{document}
+
+%---------- HEADER ----------
+\begin{center}
+  {\LARGE \textbf{\href{https://mihailoradovic.com}{\color{black}Mihailo Radović}}}\\[4pt]
+  \small
+  \href{https://mihailoradovic.com}{mihailoradovic.com} \enspace$\cdot$\enspace
+  \href{mailto:mihailo.radovic11@gmail.com}{mihailo.radovic11@gmail.com} \enspace$\cdot$\enspace
+  \href{https://github.com/mradovic38}{github.com/mradovic38} \enspace$\cdot$\enspace
+  \href{https://www.linkedin.com/in/mihailo-radovi\%C4\%87-484070278/}{LinkedIn}
+\end{center}
+\vspace{-6pt}
+{\small \textbf{Research interests:} generative models (flow matching, diffusion), robot learning and control,
+reinforcement learning, and world models, with the long-term goal of general-purpose autonomous agents.}
+
+%---------- EDUCATION ----------
+\section{Education}
+\entryListStart
+  \entry{University of Belgrade, School of Electrical Engineering}{Belgrade, Serbia}
+    {MSc in Applied Mathematics}{2025 -- present}
+  \entry{Union University, School of Computing (RAF)}{Belgrade, Serbia}
+    {BSc in Computer Science}{2021 -- 2025}
+  \desc{Thesis: \emph{SpriteFlow: Flow matching for pixel-art character generation}, advised by Prof.\ Nemanja Ilić.}
+\entryListEnd
+
+%---------- PUBLICATIONS ----------
+\section{Publications}
+\entryListStart
+  \project{Flow Matching Policy for Behavioral Cloning}{\href{https://github.com/mradovic38/flow-bc}{[code]}}
+  \desc{\textbf{M.~Radović}, F.~Marčić. \emph{IcETRAN 2026} (IEEE Xplore, to appear).}
+  \desc{Models the behavioral cloning action distribution as a continuous-time flow; competitive with or better than
+    Gaussian and diffusion policies on D4RL benchmarks (MuJoCo locomotion, Franka Kitchen, AntMaze).}
+\entryListEnd
+
+%---------- PRESENTATIONS & SUMMER SCHOOLS ----------
+\section{Presentations \& Summer Schools}
+\entryListStart
+  \entry{Eastern European Machine Learning Summer School (EEML 2026)}{Cetinje, Montenegro}
+    {Selected participant; poster: \emph{Flow Matching Policy for Behavioral Cloning}}{Jul -- Aug 2026}
+  \entry{IcETRAN 2026}{}
+    {Paper presentation: \emph{Flow Matching Policy for Behavioral Cloning}}{2026}
+\entryListEnd
+
+%---------- RESEARCH PROJECTS ----------
+\section{Research Projects}
+\entryListStart
+  \project{SpriteFlow: Flow Matching for Pixel-Art Character Generation (BSc thesis)}
+    {\href{https://github.com/mradovic38/sprite-flow}{[code]}}
+  \desc{Flow matching model with a time-conditioned U-Net generating 128$\times$128 RGBA sprites; ODE and SDE sampling,
+    linear and cosine noise schedules, EMA, and FID-based evaluation and model selection.}
+  \project{Proximal Policy Optimization from Scratch}
+    {\href{https://github.com/mradovic38/ppo-mujoco}{[PyTorch]} \href{https://github.com/mradovic38/cartpole-ppo}{[JAX]}}
+  \desc{Reimplemented PPO from the original paper and compared it with A2C and vanilla policy gradient on MuJoCo
+    locomotion (HalfCheetah, Hopper, Walker2d, Swimmer; 3 seeds). Rewrote it in JAX and trained on MuJoCo Playground
+    (MJX) Cartpole Balance and Swing-Up.}
+  \project{Football Analysis}{\href{https://github.com/mradovic38/football-analysis}{[code]}}
+  \desc{Open-source video analysis tool with 175+ GitHub stars: YOLO11 detection, ByteTrack tracking, keypoint-based
+    homography for player positions, and K-means team assignment from jersey colors.}
+\entryListEnd
+
+%---------- WRITING ----------
+\section{Writing}
+\entryListStart
+  \project{Technical Blog}{\href{https://mihailoradovic.com/blog/}{mihailoradovic.com/blog}}
+  \desc{Articles on my research in machine learning and in-depth write-ups of the mathematical foundations I find interesting.}
+\entryListEnd
+
+%---------- EXPERIENCE ----------
+\section{Experience}
+\entryListStart
+  \entry{Nordeus}{Belgrade, Serbia}{Junior Data Engineer}{2025 -- present}
+\entryListEnd
+
+%---------- HONORS & AWARDS ----------
+\section{Honors \& Awards}
+\entryListStart
+  \project{First Place, Google Build with AI Hackathon}{May 2025 \enspace
+    \href{https://www.linkedin.com/posts/mihailo-radovi\%C4\%87-484070278_hackathon-buildwithai-googlegemini-activity-7325857458743099392-XTTk}{[post]}}
+  \desc{SafeSpace: multi-agent platform for hate-speech detection and social-media sentiment analysis, with a Gemini
+    detector fine-tuned on Serbian data, a Wav2Vec2 transcription pipeline, and an agent-based assistant for parents.}
+\entryListEnd
+
+%---------- SKILLS ----------
+\section{Skills}
+\entryListStart
+  \item \small \textbf{Programming:} Python, C, C++, CUDA, SQL, Java, MATLAB
+  \item \small \textbf{ML \& tools:} PyTorch, JAX, Hugging Face Transformers, Gymnasium, MuJoCo / MJX, scikit-learn,
+    OpenCV, NumPy, pandas, Weights \& Biases, Git, \LaTeX
+\entryListEnd
+
+\end{document}

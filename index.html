@@ -1,0 +1,230 @@
+---
+# Home page: Jon Barron's template (github.com/jonbarron/jonbarron_website). Edit the HTML below directly.
+# Tells search engines this page is about a person (links to your profiles come from `social` in _config.yml).
+seo:
+  type: Person
+---
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>{{ site.author }}</title>
+
+    <meta name="author" content="{{ site.author }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    {% include head-extras.html %}
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:880px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:63%;vertical-align:middle">
+                <h1 class="name" style="text-align: center;">
+                  Mihailo Radović
+                </h1>
+                <p>
+                  <!-- Replace this bio with your own. -->
+                  I'm an MSc student in Applied Mathematics at the <a href="https://www.etf.bg.ac.rs/en">University of Belgrade, School of Electrical Engineering</a>. I also work
+                  as a Data Engineer at <a href="https://nordeus.com/">Nordeus</a>.
+                  <br>
+                  <br>
+                  My research focuses on <strong>generative models</strong>, such as <strong>diffusion</strong> and <strong>flow models</strong>, and their applications to <strong>robot motion planning and control</strong>. 
+                  I'm also interested in <strong>reinforcement learning</strong> and <strong>world models</strong>.
+                  I also keep a <strong><a href="blog/">blog</a></strong>, where I write about what I'm learning and share notes from my research.
+                  <br>
+                  <br>
+                  I completed my BSc in Computer Science at <a href="https://raf.edu.rs/en/">Union University, School of Computing</a>, in 2025.
+                  My bachelor's thesis, supervised by <a href="https://raf.edu.rs/en/teaching-staff/nemanja-ilic/">Prof. Nemanja Ilić</a>,
+                  focused on flow matching for pixel-art character generation.
+                </p>
+                <p style="text-align:center">
+                  <!-- Replace the placeholder links with your own, or delete the ones you don't need. -->
+                  <a href="mailto:mihailo.radovic11@gmail.com">Email</a> &nbsp;/&nbsp;
+                  <a href="data/CV.pdf">CV</a> &nbsp;/&nbsp;
+                  <!-- <a href="https://scholar.google.com/citations?user=XXXXXXXX">Scholar</a> &nbsp;/&nbsp; -->
+                  <a href="https://github.com/mradovic38/">GitHub</a> &nbsp;/&nbsp;
+                  <a href="https://www.linkedin.com/in/mihailo-radovi%C4%87-484070278/">LinkedIn</a> &nbsp;/&nbsp;
+                  <a href="https://x.com/MihailoAI">Twitter</a> &nbsp;/&nbsp;
+                  <a href="blog/">Blog</a>
+                </p>
+              </td>
+              <td style="padding:2.5%;width:37%;max-width:37%">
+                <!-- Replace images/profile.jpg with a photo of yourself (square works best). -->
+                <a href="images/profile.jpeg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="Photo of Mihailo Radović" src="images/profile.jpeg" class="hoverZoomLink"></a>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+              <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <p class="notice">
+                  <strong>PhD search:</strong> I'm currently looking for a PhD position in generative models, world models, reinforcement learning, and robotics.
+                  My long-term goal is to help build general-purpose autonomous agents that understand the physical world, learn from experience,
+                  and act in it safely, and I'm open to research directions that move toward that goal.
+                  If you think I'd be a good fit for your group, I'd love to hear from you by <a href="mailto:mihailo.radovic11@gmail.com">email</a>.
+                </p>
+                <h2>Research</h2>
+                <p>
+                  I'm interested in generative modeling, imitation and reinforcement learning, and robot learning.
+                  Most of my work is on flow matching: using continuous-time generative models both to generate images and to learn
+                  expressive, multi-modal policies for continuous control. Representative papers are <span class="highlight">highlighted</span>.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+
+<!-- To add an entry, copy a whole <tr>...</tr> below. For hover thumbnails, give each entry a unique name
+     (like "flowbc") and use it everywhere in that entry. Add bgcolor="#ffffd0" to the <tr> to highlight it. -->
+<tr onmouseout="flowbc_stop()" onmouseover="flowbc_start()" bgcolor="#ffffd0">
+  <td style="padding:16px;width:20%;vertical-align:middle">
+    <div class="one">
+      <div class="two" id='flowbc_image'><video  width=100% height=100% muted autoplay loop playsinline>
+      <source src="images/flowbc.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video></div>
+      <img src='images/flowbc.jpg' width="160" alt="Robot arm in the Kitchen task, from the Flow Matching Policy paper">
+    </div>
+    <script type="text/javascript">
+      function flowbc_start() {
+        document.getElementById('flowbc_image').style.opacity = "1";
+      }
+
+      function flowbc_stop() {
+        document.getElementById('flowbc_image').style.opacity = "0";
+      }
+      flowbc_stop()
+    </script>
+  </td>
+  <td style="padding:8px;width:80%;vertical-align:middle">
+    <a href="https://github.com/mradovic38/flow-bc">
+      <span class="papertitle">Flow Matching Policy for Behavioral Cloning</span>
+    </a>
+    <br>
+    <strong>Mihailo Radović</strong>,
+    Filip Marčić
+    <br>
+    <em>IcETRAN</em>, 2026
+    <br>
+    <a href="https://github.com/mradovic38/flow-bc">code</a>
+    <p></p>
+    <p>
+    Modeling a behavioral cloning policy as a continuous-time flow captures the multi-modal behavior in diverse offline datasets,
+    matching or outperforming Gaussian and diffusion policies on standard continuous-control benchmarks.
+    </p>
+  </td>
+</tr>
+
+
+<tr onmouseleave="spriteflow_stop()" onmouseenter="spriteflow_start()">
+  <td style="padding:16px;width:20%;vertical-align:middle">
+    <!-- Hover replays generation from noise: the linear flow path x_t = t*x1 + (1-t)*x0 ending at this sample. -->
+    <div class="one">
+      <div class="two" id='spriteflow_image'><video width=100% height=100% muted playsinline preload="auto">
+      <source src="images/spriteflow.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video></div>
+      <img src='images/spriteflow.png' width="160" alt="Pixel-art knight generated by SpriteFlow">
+    </div>
+    <script type="text/javascript">
+      function spriteflow_start() {
+        var el = document.getElementById('spriteflow_image');
+        var video = el.querySelector('video');
+        video.currentTime = 0;
+        video.play();
+        el.style.opacity = "1";
+      }
+
+      function spriteflow_stop() {
+        var el = document.getElementById('spriteflow_image');
+        el.style.opacity = "0";
+        el.querySelector('video').pause();
+      }
+      spriteflow_stop()
+    </script>
+  </td>
+  <td style="padding:8px;width:80%;vertical-align:middle">
+    <a href="https://github.com/mradovic38/sprite-flow">
+      <span class="papertitle">SpriteFlow: Flow-Based Pixel-Art Character Generation</span>
+    </a>
+    <br>
+    <strong>Mihailo Radović</strong>
+    <br>
+    <em>Bachelor's thesis</em>, Union University, School of Computing, 2025
+    <br>
+    Advisor: <a href="https://raf.edu.rs/en/teaching-staff/nemanja-ilic/">Prof. Nemanja Ilić</a>
+    <br>
+    <a href="https://github.com/mradovic38/sprite-flow">code</a>
+    <p></p>
+    <p>
+    A flow matching model with a time-conditioned U-Net that transforms Gaussian noise into 128&times;128 RGBA pixel-art characters.
+    </p>
+  </td>
+</tr>
+
+          </tbody></table>
+
+
+					<table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
+            <tr>
+              <td>
+                <h2>Miscellanea</h2>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+
+            <!-- Blog: your five most recent posts, filled in automatically from _posts/. -->
+            <tr>
+              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
+						     <div class="colored-box" style="background-color: #fcb97d;">
+								 <h2>Blog</h2>
+								 </div>
+              </td>
+              <td style="padding:8px;width:80%;vertical-align:middle">
+                {%- for post in site.posts limit: 5 %}
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>, {{ post.date | date: '%Y' }}<br>
+                {%- endfor %}
+                <a href="blog/"><em>All posts</em></a>
+              </td>
+            </tr>
+
+
+            <!-- <tr>
+              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
+						     <div class="colored-box" style="background-color: #edd892;">
+								 <h2>Teaching</h2>
+								 </div>
+              </td>
+              <td style="padding:8px;width:80%;vertical-align:center">
+                <a href="#">Teaching Assistant, Course Name, Spring 2026</a>
+                <br>
+                <a href="#">Teaching Assistant, Course Name, Fall 2025</a>
+              </td>
+            </tr> -->
+
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:right;font-size:small;">
+                  Built on <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron's website template</a>.
+                  {% include theme-toggle.html %}
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

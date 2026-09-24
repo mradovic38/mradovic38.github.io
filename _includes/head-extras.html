@@ -1,0 +1,42 @@
+{%- comment -%} Additions to Barron's <head>: SEO/RSS tags, icons, dark mode, email links, blog styles, and MathJax on pages with math. {%- endcomment -%}
+<script>
+      // Light by default, like the original; dark only if the visitor chose it. Runs before paint to avoid a flash.
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        document.documentElement.dataset.theme = saved === "dark" ? "dark" : "light";
+      })();
+
+      // A mailto: link does nothing when the visitor has no mail app set up, so clicking one also copies the address
+      // and shows it in a small notice. The link still opens the mail app for everyone who has one.
+      document.addEventListener("click", function (event) {
+        var link = event.target.closest && event.target.closest('a[href^="mailto:"]');
+        if (!link) return;
+        var address = decodeURIComponent(link.getAttribute("href").slice(7).split("?")[0]);
+        var toast = document.getElementById("email-toast");
+        if (!toast) {
+          toast = document.createElement("div");
+          toast.id = "email-toast";
+          toast.className = "email-toast";
+          toast.setAttribute("role", "status");
+          document.body.appendChild(toast);
+        }
+        function show(message) {
+          toast.textContent = message;
+          toast.classList.add("visible");
+          clearTimeout(toast.hideTimer);
+          toast.hideTimer = setTimeout(function () { toast.classList.remove("visible"); }, 5000);
+        }
+        var copied = navigator.clipboard && window.isSecureContext ? navigator.clipboard.writeText(address) : Promise.reject();
+        copied.then(function () { show("Email address copied: " + address); }, function () { show("Email: " + address); });
+      });
+    </script>
+    {% seo title=false %}
+    {% feed_meta %}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/favicon/favicon-32x32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/images/favicon/favicon-16x16.png' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/images/favicon/apple-touch-icon.png' | relative_url }}">
+    <link rel="stylesheet" type="text/css" href="{{ '/extras.css' | relative_url }}">
+    {%- if page.math %}
+    {% include mathjax.html %}
+    {%- endif %}

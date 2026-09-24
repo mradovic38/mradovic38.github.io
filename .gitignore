@@ -1,0 +1,18 @@
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+.bundle/
+vendor/
+.DS_Store
+.claude/
+__pycache__/
+# Seminar paper sources (paper, LaTeX build files, original scripts) stay local;
+# only the English figure scripts behind the blog post are committed.
+_drafts/f-divergences/*
+!_drafts/f-divergences/scripts_en/
+# CV: only the LaTeX source is committed; the published PDF is data/CV.pdf.
+_drafts/cv/*
+!_drafts/cv/cv.tex
+# Full-resolution originals of web images
+images/*-original.*

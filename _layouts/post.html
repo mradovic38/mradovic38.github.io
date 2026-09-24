@@ -1,0 +1,23 @@
+---
+layout: default
+---
+          <table style="width:100%;table-layout:fixed;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h1 class="post-title">{{ page.title }}</h1>
+                <p class="post-meta">
+                  {{ page.date | date: '%B %-d, %Y' }}
+                  {%- assign words = content | strip_html | number_of_words %}
+                  &middot; {{ words | divided_by: 200 | at_least: 1 }} min read
+                  {%- if page.tags.size > 0 %} &middot; {{ page.tags | join: ', ' }}{% endif %}
+                </p>
+                <div class="post-content">
+                  {{ content }}
+                </div>
+                <p class="post-pager">
+                  <span>{% if page.previous %}<a href="{{ page.previous.url | relative_url }}">&larr; {{ page.previous.title }}</a>{% endif %}</span>
+                  <span>{% if page.next %}<a href="{{ page.next.url | relative_url }}">{{ page.next.title }} &rarr;</a>{% endif %}</span>
+                </p>
+              </td>
+            </tr>
+          </tbody></table>

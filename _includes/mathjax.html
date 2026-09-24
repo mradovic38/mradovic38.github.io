@@ -1,0 +1,19 @@
+<script>
+      window.MathJax = {
+        tex: {
+          // _plugins/math.rb rewrites $...$ and $$...$$ into these delimiters.
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+          processEscapes: false,
+          tags: "ams",
+          macros: {
+            R: "\\mathbb{R}",
+            E: "\\mathbb{E}",
+          },
+        },
+        options: {
+          skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+        },
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>

@@ -1,0 +1,72 @@
+# ---------------------------------------------------------------------------
+# Site settings — edit these.
+# ---------------------------------------------------------------------------
+title: Mihailo Radović
+author: Mihailo Radović
+description: >-
+  MSc student in Applied Mathematics at the University of Belgrade working on generative models,
+  flow matching, robot learning, reinforcement learning and world models. Research, projects and blog.
+
+# Search and social previews (used by jekyll-seo-tag).
+twitter:
+  username: MihailoAI
+  card: summary
+social:
+  name: Mihailo Radović
+  links:
+    - https://github.com/mradovic38
+    - https://x.com/MihailoAI
+    - https://www.linkedin.com/in/mihailo-radovi%C4%87-484070278/
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/profile.jpeg
+
+# Custom domain (set up in the repo's Settings -> Pages, DNS at Porkbun). The site lives at the domain root.
+url: https://mihailoradovic.com
+baseurl: ""
+
+# Your bio, links, photo and projects are edited directly in index.html, just
+# like in the original Jon Barron template. The values above are used by the
+# blog pages, the RSS feed and search-engine metadata.
+
+# ---------------------------------------------------------------------------
+# Build settings — you normally don't need to touch these.
+# ---------------------------------------------------------------------------
+timezone: Europe/Belgrade
+permalink: /blog/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  # Math is handled by _plugins/math.rb, not by kramdown.
+  math_engine: null
+  # Table of contents ({:toc}) lists sections and subsections.
+  toc_levels: "2..3"
+
+# Post summaries come from the `description` front matter field, not from the
+# first paragraph (auto-excerpts would run math through Markdown unprotected).
+excerpt_separator: ""
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+exclude:
+  # Seminar paper sources (LaTeX, PDFs, figure scripts); not blog posts.
+  - _drafts/f-divergences
+  - _drafts/cv
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .jekyll-cache

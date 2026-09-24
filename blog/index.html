@@ -1,0 +1,32 @@
+---
+layout: default
+title: Blog
+---
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2>Blog</h2>
+                {%- if site.posts.size == 0 %}
+                <p>No posts yet.</p>
+                {%- endif %}
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            {%- for post in site.posts %}
+            <tr>
+              <td style="padding:16px;width:20%;vertical-align:middle;white-space:nowrap" class="post-date">
+                {{ post.date | date: '%b %-d, %Y' }}
+              </td>
+              <td style="padding:8px;width:80%;vertical-align:middle">
+                <a href="{{ post.url | relative_url }}">
+                  <span class="papertitle">{{ post.title }}</span>
+                </a>
+                {%- if post.description %}
+                <br>
+                {{ post.description }}
+                {%- endif %}
+              </td>
+            </tr>
+            {%- endfor %}
+          </tbody></table>

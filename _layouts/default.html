@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.author }}</title>
+
+    <meta name="author" content="{{ site.author }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ '/images/favicon/favicon.ico' | relative_url }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ '/stylesheet.css' | relative_url }}">
+    {% include head-extras.html %}
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:880px;{% if page.layout == 'post' %}table-layout:fixed;{% endif %}border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:100%;vertical-align:middle">
+                <p class="name site-name" style="text-align: center;">
+                  <a href="{{ '/' | relative_url }}" style="color:inherit;font-size:inherit">{{ site.author }}</a>
+                </p>
+                <p style="text-align:center">
+                  <a href="{{ '/' | relative_url }}">Home</a> &nbsp;/&nbsp;
+                  <a href="{{ '/blog/' | relative_url }}">Blog</a> &nbsp;/&nbsp;
+                  <a href="{{ '/data/CV.pdf' | relative_url }}">CV</a>
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+          {{ content }}
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px">
+                <br>
+                <p style="text-align:right;font-size:small;">
+                  Built on <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron's website template</a>.
+                  {% include theme-toggle.html %}
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
