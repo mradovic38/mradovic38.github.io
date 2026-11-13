@@ -4,8 +4,8 @@
 title: Mihailo Radović
 author: Mihailo Radović
 description: >-
-  MSc student in Applied Mathematics at the University of Belgrade working on generative models,
-  flow matching, robot learning, reinforcement learning and world models. Research, projects and blog.
+  MSc student in Electrical Engineering and Computing (Applied Mathematics) at the University of Belgrade working on
+  diffusion, flow matching, world models (JEPA) and robot learning. Research, projects and blog.
 
 # Search and social previews (used by jekyll-seo-tag).
 twitter:
@@ -17,6 +17,7 @@ social:
     - https://github.com/mradovic38
     - https://x.com/MihailoAI
     - https://www.linkedin.com/in/mihailoradovic/
+    - https://scholar.google.com/citations?user=kyBMZ88AAAAJ
 defaults:
   - scope:
       path: ""
